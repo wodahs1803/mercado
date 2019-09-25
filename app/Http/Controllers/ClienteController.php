@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\{Cliente};
+use DB;
 
 class ClienteController extends Controller
 {
@@ -13,7 +15,11 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        return view('clientes.index');
+        $data = [
+            'clientesAtivos' => Cliente::get(),
+            'clientesInativos' => Cliente::onlyTrashed()->get()
+        ];
+        return view('clientes.index', compact('data'));
     }
 
     /**

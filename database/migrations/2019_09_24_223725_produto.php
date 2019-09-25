@@ -1,10 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
-class Cliente extends Migration
+class Produto extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class Cliente extends Migration
      */
     public function up()
     {
-        Schema::create('cliente', function (Blueprint $table) {
+        Schema::create('produto', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nome', 150);
-            //$table->string('email')->unique();
+            $table->double('valor');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -29,6 +29,6 @@ class Cliente extends Migration
      */
     public function down()
     {
-        Schema::drop('cliente');
+        Schema::drop('produto');
     }
 }

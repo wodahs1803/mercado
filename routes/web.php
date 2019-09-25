@@ -15,5 +15,20 @@
 //     return view('welcome');
 // });
 
-Route::get('/','HomeController@index');
-Route::resource('/clientes', 'ClienteController');
+// Route::get('/','HomeController@index');
+// Route::resource('/clientes', 'ClienteController');
+
+Route::get('/', 'HomeController@index');
+Route::prefix('clientes')->group(function() {
+    Route::get('/', 'ClienteController@index');
+    Route::get('create', 'ClienteController@create');
+    Route::post('/', 'ClienteController@store');
+    Route::get('{id}/edit', 'ClienteController@edit');
+    Route::put('{id}', 'ClienteController@update');
+    Route::delete('{id}', 'ClienteController@destroy');
+    Route::get('{id}/compras', 'ComprasController@index');
+});
+Route::prefix('compras')->group(function() {
+    Route::get('create', 'ComprasController@create');
+    Route::post('/', 'ComprasController@store');
+});

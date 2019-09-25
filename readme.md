@@ -70,3 +70,50 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+##Short Guide
+download composer
+composer create-project --prefer-dist laravel/laravel blog "5.8.*"
+
+APP: Models: connection to database.
+
+Http: Controllers: Where the functions will be registered.
+
+Public: Keeps the CSS, JS, HTML, etc... (frontend?)
+
+Resources: Views: Where the pages (screens) are.
+
+Routes: web.php: Where all system's routes are registered.
+	Route::???('[path]', 'Controller@functionToBeUsed');
+
+*Route is a class
+*After :: are methods that'll be used.
+*::get: Gets data
+*::POST: Sends data (e.g. forms)
+*::put: Used to edit
+*::delete: used to delete
+
+php artisan make:controller HomeController
+*Create a controller
+
+@extends('layouts.app')
+Gets a "template" for the view
+
+@yields('[section_name]')
+@section('[section_name]')
+@stop
+*yields: Literally "yields" a section of the template to be edited by the view
+**section: Uses the section of the template
+***stop: Ends usage of said section
+
+*{{'bluhbluhbluh'}} Is the same as 'echo'
+
+db haul
+*Using SQL instead of methods to get values
+
+github.com/FerBiani/gerenciamento-biblioteca
+
+tema: Sistema de Mercado
+Cliente, Produtos
+
+
