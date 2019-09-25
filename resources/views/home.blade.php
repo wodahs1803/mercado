@@ -1,8 +1,5 @@
-@extends('layouts.app')
-@section('styles')
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-@stop
-@section('content')
+@extends('layouts.app') @section('styles')
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> @stop @section('content')
 <div class="card">
     <div class="card-header">
         <div class="row">
@@ -11,14 +8,16 @@
         </div>
     </div>
     <div class="card-body">
-    <h6>Bem vindo!</h6>
+        <h6>Bem vindo!</h6>
         <hr>
 
         <div class="row">
 
             <div class="col-md-4">
                 <div class="card">
-                    <div class="card-header">Clientes</div>
+                    <div class="card-header">
+                        <a style="text-decoration: none;color:#212529" href="{{url('clientes')}}">Clientes</a>
+                    </div>
                     <div class="card-body">
                         {{$data['clientes']}}
                     </div>
@@ -27,7 +26,9 @@
 
             <div class="col-md-4">
                 <div class="card">
-                    <div class="card-header">Produtos</div>
+                    <div class="card-header">
+                        <a style="text-decoration: none;color:#212529" href="{{url('produtos')}}">Produtos</a>
+                    </div>
                     <div class="card-body">
                         {{$data['produtos']}}
                     </div>

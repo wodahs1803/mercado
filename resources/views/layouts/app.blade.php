@@ -10,20 +10,28 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.min.css')}}">
     @yield('styles')
 </head>
-<body>
+<body style="background-color:#f9fffc">
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Alterna navegação">
             <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand d-flex align-items-center" href="#">
-            <a href="{{url('/')}}" class="ml-2"><b>Mercado</b></a>
+            <a href="{{url('/')}}" class="ml-2" style="text-decoration: none;color:#f2f2f2"><b><h3>Home</h3></b></a>
         </a>
 
         <div class="collapse navbar-collapse" id="navbarToggler">
             <ul class="navbar-nav mt-2 mt-lg-0 ml-auto">
             <li class="nav-item">
                 <a class="nav-link" href="{{url('clientes')}}">Clientes</a>
+            </li>
+            <ul class="navbar-nav mt-2 mt-lg-0 ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{{url('produtos')}}">Produtos</a>
+            </li>
+            <ul class="navbar-nav mt-2 mt-lg-0 ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{{url('compras/create')}}">Compras</a>
             </li>
         </div>
     </nav>

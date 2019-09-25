@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\ClienteRequest;
-use App\{Cliente};
+use App\Http\Requests\ProdutoRequest;
+use App\{Produto};
 use DB;
 
-class ClienteController extends Controller
+class ProdutoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,10 +17,10 @@ class ClienteController extends Controller
     public function index()
     {
         $data = [
-            'clientesAtivos' => Cliente::get(),
-            'clientesInativos' => Cliente::onlyTrashed()->get()
+            'produtosAtivos' => Produto::get(),
+            'produtosInativos' => Produto::onlyTrashed()->get()
         ];
-        return view('clientes.index', compact('data'));
+        return view('produtos.index', compact('data'));
     }
 
     /**
@@ -31,11 +31,11 @@ class ClienteController extends Controller
     public function create()
     {
         $data = [
-            'cliente' => '',
-            'url' => 'clientes',
+            'produto' => '',
+            'url' => 'produtos',
             'method' => 'POST',
         ];
-        return view('clientes.form', compact('data'));
+        return view('produtos.form', compact('data'));
     }
 
     /**
@@ -44,18 +44,19 @@ class ClienteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ClienteRequest $request)
+    public function store(ProdutoRequest $request)
     {
         DB::beginTransaction();
         try {
-            $cliente = Cliente::create([
-                'nome' => $request['cliente']['nome']
+            $produto = Produto::create([
+                'nome' => $request['produto']['nome'],
+                'valor' => $request['produto']['valor']
             ]);
             DB::commit();
-            return redirect('clientes')->with('success', 'Cliente cadastrado com sucesso!');
+            return redirect('produtos')->with('success', 'Produto cadastrado com sucesso!');
         } catch(\Exception $e) {
             DB::rollback();
-            return redirect('clientes')->with('error', 'Erro no servidor! Cliente não cadastrado!');
+            return redirect('produtos')->with('error', 'Erro no servidor! Produto não cadastrado!');
         }
     }
 
@@ -78,13 +79,13 @@ class ClienteController extends Controller
      */
     public function edit($id)
     {
-        $cliente = Cliente::findOrFail($id);
+        $produto = Produto::findOrFail($id);
         $data = [
-            'cliente' => $cliente,
-            'url' => 'clientes/'.$id,
+            'produto' => $produto,
+            'url' => 'produtos/'.$id,
             'method' => 'PUT',
         ];
-        return view('clientes.form', compact('data'));
+        return view('produtos.form', compact('data'));
     }
 
     /**
@@ -96,17 +97,18 @@ class ClienteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $cliente = Cliente::findOrFail($id);
+        $produto = Produto::findOrFail($id);
         DB::beginTransaction();
         try {
-            $cliente->update([
-                'nome' => $request['cliente']['nome']
+            $produto->update([
+                'nome' => $request['produto']['nome'],
+                'valor' => $request['produto']['valor']
             ]);
             DB::commit();
-            return redirect('clientes')->with('success', 'Cliente atualizado com sucesso!');
+            return redirect('produtos')->with('success', 'Produto atualizado com sucesso!');
         } catch(\Exception $e) {
             DB::rollback();
-            return redirect('clientes')->with('error', 'Erro no servidor! Cliente não atualizado!');
+            return redirect('produtos')->with('error', 'Erro no servidor! Produto não atualizado!');
         }
     }
 
@@ -118,13 +120,13 @@ class ClienteController extends Controller
      */
     public function destroy($id)
     {
-        $cliente = Cliente::withTrashed()->findOrFail($id);
-        if($cliente->trashed()) {
-            $cliente->restore();
-            return back()->with('success', 'Cliente ativado com sucesso!');
+        $produto = Produto::withTrashed()->findOrFail($id);
+        if($produto->trashed()) {
+            $produto->restore();
+            return back()->with('success', 'Produto ativado com sucesso!');
         } else {
-            $cliente->delete();
-            return back()->with('success', 'Cliente desativado com sucesso!');
+            $produto->delete();
+            return back()->with('success', 'Produto desativado com sucesso!');
         }
     }
 }
