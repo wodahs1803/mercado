@@ -17,12 +17,13 @@ class Compra extends Model
     ];
 
     public function produto(){
-        return $this->belongsToMany('App\Produto', 'produto_has_compra', 'compra_id', 'porduto_id')
+        return $this->belongsToMany('App\Produto', 'produto_has_compra')
                     ->withPivot('quantidade');
     }
 
     public function setData($val) {
-        $this->attributes['data'] = implode('-', array_reverse(explode('/', $val)));
+        //$this->attributes['data'] = implode('-', array_reverse(explode('/', $val)));
+        return implode('-', array_reverse(explode('/', $val)));
     }
     public function getData($val) {
         return implode('/', array_reverse(explode('-', $val)));

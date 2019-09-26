@@ -34,7 +34,7 @@
                                     <option value="{{$produto->id}}">{{$produto->nome}}</option>
                                 @endforeach
                             </select>
-                            <input type="text" name="quantidade[0][quantidade]" aria-label="quantidade-p1" class="form-control qtd col-3">
+                            <input type="text" name="produtos[0][quantidade]" aria-label="quantidade-p1" class="form-control qtd col-3">
                         </div>
                     </div>
                 </div>
@@ -48,7 +48,7 @@
                                     <option value="{{$produto->id}}">{{$produto->nome}}</option>
                                 @endforeach
                             </select>
-                            <input type="text" name="quantidade[1][quantidade]" aria-label="quantidade-p2" class="form-control qtd col-3">
+                            <input type="text" name="produtos[1][quantidade]" aria-label="quantidade-p2" class="form-control qtd col-3">
                         </div>
                     </div>
                 </div>
@@ -62,7 +62,7 @@
                                     <option value="{{$produto->id}}">{{$produto->nome}}</option>
                                 @endforeach
                             </select>
-                            <input type="text" name="quantidade[2][quantidade]" aria-label="quantidade-p3" class="form-control qtd col-3">
+                            <input type="text" name="produtos[2][quantidade]" aria-label="quantidade-p3" class="form-control qtd col-3">
                         </div>
                     </div>
                 </div>

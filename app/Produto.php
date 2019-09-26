@@ -18,7 +18,7 @@ class Produto extends Model
 
     public function compras()
     {
-        return $this->belongsToMany('App\Compras', 'produto_has_compra', 'porduto_id','compra_id')
+        return $this->belongsToMany('App\Compras', 'produto_has_compra', 'produto_id','compra_id')
                     ->withPivot('quantidade');
     }
 }
