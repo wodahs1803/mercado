@@ -25,14 +25,13 @@ class ProdutoRequest extends FormRequest
     {
         return [
             'produto.nome' => ['required'],
-            'produto.valor' => ['required', 'numeric'],
+            'produto.valor' => ['required'],
         ];
     }
 
     public function messages() {
         return [
-            'required' => 'Campo obrigatório!',
-            'numeric' => 'Campo tem que ser numérico!'
+            'required' => 'Campo obrigatório!'
         ];
     }
 }

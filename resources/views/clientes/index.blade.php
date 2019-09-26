@@ -49,8 +49,9 @@
                                 </tr>
                             @endforeach
                         </tbody>
+                        
                     </table>
-                    
+                    {{ $data['clientesAtivos']->links() }}
                 </div>
             </div>
         </div>
@@ -81,6 +82,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                    {{ $data['clientesInativos']->links() }}
                 </div>
             </div>
         </div>

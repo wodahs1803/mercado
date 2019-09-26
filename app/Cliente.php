@@ -12,4 +12,8 @@ class Cliente extends Model
     protected $table = 'cliente';
 
     protected $fillable =  ['nome'];
+
+    public function compra() {
+        return $this->hasMany('App\Compra');
+    }
 }

@@ -17,7 +17,7 @@
                     <div class="input-group-prepend">
                         <div class="input-group-text">R$</div>
                     </div>
-                    <input type="number" step="0.01" value="{{old('produto.valor', $data['produto'] ? $data['produto']->valor : '')}}" name="produto[valor]" class="form-control">
+                    <input type="text" value="{{old('produto.valor', $data['produto'] ? $data['produto']->valor : '')}}" name="produto[valor]" class="form-control money">
                 </div>
                 <span style="color:red">{{$errors->first('produto.valor')}}</span>
             </div>

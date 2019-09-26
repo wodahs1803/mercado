@@ -19,7 +19,7 @@ class ComprasController extends Controller
     public function create() {
         $data = [
             'clientes' => Cliente::all(),
-            'produtos' => produto::all()
+            'produtos' => Produto::all()
         ];
         return view('compras.form', compact('data'));
     }
@@ -32,7 +32,7 @@ class ComprasController extends Controller
                 'data' => $request['compra']['data'],
                 'cliente_id' => $request['compra']['cliente_id']
             ]);
-            $compra->produtos()->attach($request['produtos']);
+            $compra->produtos()->attach($request['produtos'], ['quantidade' => $request['quantidade']]);
             DB::commit();
             return redirect('clientes')->with('success', 'Compra realizada com sucesso!');
         } catch(\Exception $e) {

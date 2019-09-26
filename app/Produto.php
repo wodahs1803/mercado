@@ -15,4 +15,10 @@ class Produto extends Model
         'nome',
         'valor',
     ];
+
+    public function compras()
+    {
+        return $this->belongsToMany('App\Compras', 'produto_has_compra', 'porduto_id','compra_id')
+                    ->withPivot('quantidade');
+    }
 }

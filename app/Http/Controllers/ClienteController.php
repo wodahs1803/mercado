@@ -17,8 +17,8 @@ class ClienteController extends Controller
     public function index()
     {
         $data = [
-            'clientesAtivos' => Cliente::get(),
-            'clientesInativos' => Cliente::onlyTrashed()->get()
+            'clientesAtivos' => Cliente::paginate(5),
+            'clientesInativos' => Cliente::onlyTrashed()->paginate(5)
         ];
         return view('clientes.index', compact('data'));
     }
