@@ -33,7 +33,11 @@ class ComprasController extends Controller
                 'data' => $compra->setData($request['compra']['data']),
                 'cliente_id' => $request['compra']['cliente_id']
             ]);
-            
+            // return $request;
+            // $id = $compra->id;
+            // dd($id);
+            // dd($request['produtos'][0]['produto_id']);
+            // $compra->produto()->sync($compra);
             $compra->produto()->attach($request['produtos'][0]['produto_id'], ['quantidade' => $request['produtos'][0]['quantidade']]);
             DB::commit();
             return redirect('clientes')->with('success', 'Compra realizada com sucesso!');
