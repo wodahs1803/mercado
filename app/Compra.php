@@ -16,14 +16,18 @@ class Compra extends Model
         'cliente_id'
     ];
 
+    public function cliente(){
+        return $this->belongsTo('App\Cliente');
+    }
+
     public function produto(){
-        return $this->belongsToMany('App\Produto', 'produto_has_compra', 'produto_id')
+        return $this->belongsToMany('App\Produto', 'produto_has_compra')
                     ->withPivot('quantidade');
     }
 
-    public function setData($val) {
-        //$this->attributes['data'] = implode('-', array_reverse(explode('/', $val)));
-        return implode('-', array_reverse(explode('/', $val)));
+    public function setDataAttribute($val) {
+        $this->attributes['data'] = implode('-', array_reverse(explode('/', $val)));
+        //return implode('-', array_reverse(explode('/', $val)));
     }
     public function getData($val) {
         return implode('/', array_reverse(explode('-', $val)));

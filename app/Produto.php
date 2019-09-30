@@ -16,9 +16,10 @@ class Produto extends Model
         'valor',
     ];
 
-    public function compras()
+    public function compra()
     {
-        return $this->belongsToMany('App\Compras', 'produto_has_compra', 'compra_id')
+        return $this->belongsToMany('App\Compra', 'produto_has_compra')
                     ->withPivot('quantidade');
     }
+
 }

@@ -13,17 +13,21 @@
                                 <th>ID</th>
                                 <th>Produto</th>
                                 <th>Valor</th>
+                                <th>Quantidade</th>
                                 <th>Data da Compra</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($data['cliente']->compras as $compra)
+                            @foreach($data['cliente']->compra as $compra)
+                                @foreach($compra->produto as $produto)
                                 <tr>
                                     <td>{{$compra->id}}</td>
-                                    <td>{{$compra->produto->nome}}</td>
-                                    <td>{{$compra->produto->valor}}</td>
+                                    <td>{{$produto->nome}}</td>
+                                    <td>{{$produto->valor}}</td>
+                                    <td>{{$produto->pivot->quantidade}}</td>
                                     <td>{{$compra->data}}</td>
                                 </tr>
+                                @endforeach
                             @endforeach
                         </tbody>
                     </table>

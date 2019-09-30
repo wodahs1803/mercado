@@ -29,7 +29,7 @@
                         <label for="p1"><b>Produto 1</b></label>
                         <div class="input-group">
                             <select id="p1" name="produtos[0][produto_id]" class="form-control" >
-                                <option value="">--Selecione--</option>
+                                <option value="0">--Selecione--</option>
                                 @foreach($data['produtos'] as $produto)
                                     <option value="{{$produto->id}}">{{$produto->nome}}</option>
                                 @endforeach
@@ -43,7 +43,7 @@
                         <label for="p2"><b>Produto 2</b></label>
                         <div class="input-group">
                             <select id="p2" name="produtos[1][produto_id]" class="form-control">
-                                <option value="">--Selecione--</option>
+                                <option value="0">--Selecione--</option>
                                 @foreach($data['produtos'] as $produto)
                                     <option value="{{$produto->id}}">{{$produto->nome}}</option>
                                 @endforeach
@@ -57,7 +57,7 @@
                         <label for="p3"><b>Produto 3</b></label>
                         <div class="input-group">
                             <select id="p3" name="produtos[2][produto_id]" class="form-control">
-                                <option value="">--Selecione--</option> 
+                                <option value="0">--Selecione--</option> 
                                 @foreach($data['produtos'] as $produto)
                                     <option value="{{$produto->id}}">{{$produto->nome}}</option>
                                 @endforeach

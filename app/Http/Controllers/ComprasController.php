@@ -9,9 +9,14 @@ use DB;
 class ComprasController extends Controller
 {
     public function index($id) {
+
         $data = [
-            'cliente' => Cliente::findOrFail($id)
+            'cliente' => Cliente::findOrFail($id),
+            //'compras' => Compra::where('cliente_id', $id)->get(),
+            //'produto' => Produto::where('id', $produto_id['id'])->get()
         ];
+
+        //return($data);
         return view('compras.index', compact('data'));
         
     }
@@ -27,10 +32,9 @@ class ComprasController extends Controller
     public function store(Request $request) {
         DB::beginTransaction();
         try {
-            $compra = new Compra;
             
-            $compra->create([
-                'data' => $compra->setData($request['compra']['data']),
+            $compra = Compra::create([
+                'data' => ($request['compra']['data']),
                 'cliente_id' => $request['compra']['cliente_id']
             ]);
             // return $request;
@@ -38,7 +42,10 @@ class ComprasController extends Controller
             // dd($id);
             // dd($request['produtos'][0]['produto_id']);
             // $compra->produto()->sync($compra);
+            /*
             $compra->produto()->attach($request['produtos'][0]['produto_id'], ['quantidade' => $request['produtos'][0]['quantidade']]);
+            */
+            $compra->produto()->attach($request['produtos']);
             DB::commit();
             return redirect('clientes')->with('success', 'Compra realizada com sucesso!');
         } catch(\Exception $e) {

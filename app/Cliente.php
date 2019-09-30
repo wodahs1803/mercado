@@ -16,4 +16,5 @@ class Cliente extends Model
     public function compra() {
         return $this->hasMany('App\Compra');
     }
+    
 }
