@@ -8,6 +8,7 @@
 
     <!-- STYLES -->
     <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     @yield('styles')
 </head>
 <body style="background-color:#f9fffc">
@@ -17,21 +18,36 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand d-flex align-items-center" href="#">
-            <a href="{{url('/')}}" class="ml-2" style="text-decoration: none;color:#f2f2f2"><b><h3>Home</h3></b></a>
+            <a href="{{url('/')}}" class="ml-2" style="text-decoration: none;color:#f2f2f2"><b><h3>Mercado</h3></b></a>
         </a>
 
         <div class="collapse navbar-collapse" id="navbarToggler">
             <ul class="navbar-nav mt-2 mt-lg-0 ml-auto">
             <li class="nav-item">
-                <a class="nav-link" href="{{url('clientes')}}">Clientes</a>
+                <a class="nav-link" href="{{url('clientes')}}">
+                    <div class="row mr-1 ml-1">
+                        <i class="material-icons mr-1">account_circle</i>
+                        Clientes
+                    </div>
+                </a>
             </li>
             <!-- <ul class="navbar-nav mt-2 mt-lg-0 ml-auto"> -->
             <li class="nav-item">
-                <a class="nav-link" href="{{url('produtos')}}">Produtos</a>
+                <a class="nav-link" href="{{url('produtos')}}">
+                    <div class="row mr-1 ml-1">
+                        <i class="material-icons mr-1">shopping_cart</i>
+                        Produtos
+                    </div>
+                </a>
             </li>
             <!-- <ul class="navbar-nav mt-2 mt-lg-0 ml-auto"> -->
             <li class="nav-item">
-                <a class="nav-link" href="{{url('compras/create')}}">Compras</a>
+                <a class="nav-link" href="{{url('compras/create')}}">
+                    <div class="row mr-1 ml-1">
+                        <i class="material-icons mr-1">attach_money</i>
+                        Nova Compra
+                    </div>
+                </a>
             </li>
         </div>
     </nav>

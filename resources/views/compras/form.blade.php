@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="card">
-    <div class="card-header">Nova Compra</div>
+    <div class="card-header"><h4>Nova Compra</h4></div>
     <div class="card-body">
         <form method="POST" action="{{url('compras')}}">
     

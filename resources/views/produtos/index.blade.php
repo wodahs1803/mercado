@@ -7,14 +7,19 @@
     <div class="card-header">
         <div class="row">
             <i class="material-icons mr-1" style="font-size:50px;">shopping_cart</i>
-            <h1>Produto</h1>
+            <h1>Produtos</h1>
         </div>
     </div>
     <div class="card-body">
     
         <div class="col-md-12">
             <div class="text-right">
-                <a href="{{url('produtos/create')}}" class="btn btn-success">Novo Produto</a>
+                <a href="{{url('produtos/create')}}" class="btn btn-success">
+                    <div class="row mr-1 ml-1">
+                        <i class="material-icons mr-1">add_shopping_cart</i>
+                        Novo Produto
+                    </div>
+                </a>
                 <!-- <a href="{{url('compras/create')}}" class="btn btn-primary">Nova Compra</a> -->
             </div>
         </div>

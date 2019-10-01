@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="card">
-    <div class="card-header">{{$data['cliente'] ? 'Editar cliente' : 'Novo cliente'}}</div>
+    <div class="card-header"><h4>{{$data['cliente'] ? 'Editar cliente' : 'Novo cliente'}}</h4></div>
     <div class="card-body">
         <form method="POST" action="{{url($data['url'])}}">
             @if($data['method'] == 'PUT')

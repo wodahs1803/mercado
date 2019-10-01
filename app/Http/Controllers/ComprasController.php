@@ -50,7 +50,6 @@ class ComprasController extends Controller
             return redirect('clientes')->with('success', 'Compra realizada com sucesso!');
         } catch(\Exception $e) {
             DB::rollback();
-            dd($e);
             return redirect('clientes')->with('error', 'Erro no servidor! Compra não realizada!'); 
         }
     }

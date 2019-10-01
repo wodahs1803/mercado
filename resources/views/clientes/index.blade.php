@@ -7,14 +7,19 @@
     <div class="card-header">
         <div class="row">
             <i class="material-icons mr-1" style="font-size:50px;">account_circle</i>
-            <h1>Cliente</h1>
+            <h1>Clientes</h1>
         </div>
     </div>
     <div class="card-body">
     
         <div class="col-md-12">
-            <div class="text-right">
-                <a href="{{url('clientes/create')}}" class="btn btn-success">Novo Cliente</a>
+            <div class="text-right">                
+                <a href="{{url('clientes/create')}}" class="btn btn-success">
+                    <div class="row mr-1 ml-1">
+                        <i class="material-icons mr-1">person_add</i>
+                        Novo Cliente
+                    </div>
+                </a>
                 <!-- <a href="{{url('compras/create')}}" class="btn btn-primary">Nova Compra</a> -->
             </div>
         </div>

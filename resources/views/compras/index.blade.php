@@ -1,7 +1,15 @@
 @extends('layouts.app')
+@section('styles')
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+@stop
 @section('content')
 <div class="card">
-    <div class="card-header">Compras</div>
+    <div class="card-header">
+        <div class="row">
+            <i class="material-icons mr-1" style="font-size:50px;">attach_money</i>
+            <h1>Compras</h1>
+        </div>
+    </div>
     <div class="card-body">
         <div class="col-md-12 mt-4">
             <div class="card">
@@ -21,11 +29,13 @@
                             @foreach($data['cliente']->compra as $compra)
                                 @foreach($compra->produto as $produto)
                                 <tr>
+                                
                                     <td>{{$compra->id}}</td>
                                     <td>{{$produto->nome}}</td>
                                     <td>{{$produto->valor}}</td>
                                     <td>{{$produto->pivot->quantidade}}</td>
                                     <td>{{$compra->data}}</td>
+                                    
                                 </tr>
                                 @endforeach
                             @endforeach
